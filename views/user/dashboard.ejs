@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row dash-wrapper">
+    <div class="col-md-4 dash-nav">
+      <div class="sidenav">
+        <div class="row sidenav-button">
+          <div class="col-md-12">
+            <%- partial ('../partials/add-post-form.ejs') %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 dash-main">
+      <div class="panel panel-default">
+        <div class="panel-heading">Published Posts</div>
+        <ul class=list-group>
+        <% for(var i=0; i<published.length; i++) {%>
+           <li class="list-group-item"><%= published[i].title %></li>
+        <% } %>
+        </ul>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Drafts/Unpublished</div>
+        <ul class=list-group>
+        <% for(var i=0; i<unpublished.length; i++) {%>
+           <li class="list-group-item"><%= unpublished[i].title %></li>
+        <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
