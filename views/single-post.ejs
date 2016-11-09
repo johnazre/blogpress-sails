@@ -1,10 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content-wrapper">
-      <h3><%= post.title %></h3>
-      <p>
-        <%= post.body %>
-      </p>
+    <div class="col-md-12 sp-post-wrapper">
+      <h3 class="sp-post-title"><%= post.title %></h3>
+      <p class="sp-post-created-date"><%= post.createdAt %></p>
+      <p class="sp-post-body"><%= post.body %></p>
     </div>
   </div>
 </div>

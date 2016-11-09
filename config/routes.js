@@ -34,6 +34,8 @@ module.exports.routes = {
 
   '/': 'PostController.showAllPosts',
   '/posts/:post_id': 'PostController.showOnePost',
+  '/posts/publish/:post_id': 'PostController.publish',
+  '/posts/unpublish/:post_id': 'PostController.unpublish',
   '/login': {
     view: 'login'
   }

@@ -11,20 +11,45 @@
     </div>
     <div class="col-md-8 dash-main">
       <div class="panel panel-default">
-        <div class="panel-heading">Published Posts</div>
-        <ul class=list-group>
-        <% for(var i=0; i<published.length; i++) {%>
-           <li class="list-group-item"><a href="/posts/<%= i %>"><%= published[i].title %></a></li>
-        <% } %>
-        </ul>
+        <div class="panel-heading">Published</div>
+        <table class="table table-hover">
+          <tbody>
+            <% for(var i = 0; i < published.length; i++) {%>
+            <tr>
+              <td>
+                <a href="/posts/<%= published[i].id %>"><%= published[i].title %></a>
+              </td>
+              <td class="text-right text-nowrap">
+                <button onclick="location.href='/post/unpublish/<%= published[i].id %>';" class="btn btn-xs btn-info">Unpublish</button>
+                <button onclick="location.href='/post/destroy/<%= published[i].id %>';" class="btn btn-xs btn-warning">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
       </div>
+
       <div class="panel panel-default">
         <div class="panel-heading">Drafts/Unpublished</div>
-        <ul class=list-group>
-        <% for(var i=0; i<unpublished.length; i++) {%>
-           <li class="list-group-item"><a href="/posts/<%= i %>"><%= unpublished[i].title %></a></li>
-        <% } %>
-        </ul>
+        <table class="table table-hover">
+          <tbody>
+            <% for(var i=0; i<unpublished.length; i++) {%>
+            <tr>
+              <td>
+                <a href="/posts/<%= unpublished[i].id %>"><%= unpublished[i].title %></a>
+              </td>
+              <td class="text-right text-nowrap">
+                <button onclick="location.href='/post/publish/<%= unpublished[i].id %>';" class="btn btn-xs btn-info">Publish</button>
+                <button onclick="location.href='/post/destroy/<%= unpublished[i].id %>';" class="btn btn-xs btn-warning">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

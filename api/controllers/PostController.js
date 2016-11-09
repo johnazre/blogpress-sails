@@ -35,7 +35,7 @@ module.exports = {
         res.view('single-post', { post: post});
       });
   },
-  
+
   create: function(req, res) {
     Post
       .create({
@@ -43,6 +43,37 @@ module.exports = {
         body: req.body.body
       })
       .exec( function(err, post) {
+        res.redirect('user/dashboard');
+      });
+  },
+
+  publish: function(req, res) {
+    Post
+    .update({id: req.param('id'), published: false},{
+      published: true
+    })
+    .exec( function(err, post) {
+      sails.log.info('post updated: ', post);
+      res.redirect('user/dashboard');
+    });
+  },
+
+  unpublish: function(req, res) {
+    Post
+    .update({id: req.param('id'), published: true},{
+      published: false
+    })
+    .exec( function(err, post) {
+      sails.log.info('post updated: ', post);
+      res.redirect('user/dashboard');
+    });
+  },
+
+  destroy: function(req, res) {
+    Post
+      .destroy({id: req.param('id')})
+      .exec(function(err, post) {
+        sails.log.info('post deleted: ', post);
         res.redirect('user/dashboard');
       });
   }
