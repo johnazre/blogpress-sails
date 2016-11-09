@@ -1,11 +1,11 @@
 <h1>Welcome to BlogPress</h1>
 <div class="container-fluid">
   <% for(var i=0; i<posts.length; i++) {%>
+    <% if(posts[i].published) {%>
      <div class="row">
        <div class="col-md-12">
          <p>
            <i><small>Author: <%= posts[i].author %>, <span>Posted: <%= posts[i].createdAt %></span></small></i>
-
          </p>
          <h3 class="post-title"><a href="/posts/<%= posts[i].id %>"><%= posts[i].title %></a></h3>
          <p>
@@ -14,5 +14,6 @@
          <hr>
        </div>
      </div>
+     <% } %>
   <% } %>
 </div>
