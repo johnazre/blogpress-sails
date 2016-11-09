@@ -14,7 +14,7 @@
         <div class="panel-heading">Published Posts</div>
         <ul class=list-group>
         <% for(var i=0; i<published.length; i++) {%>
-           <li class="list-group-item"><%= published[i].title %></li>
+           <li class="list-group-item"><a href="/posts/<%= i %>"><%= published[i].title %></a></li>
         <% } %>
         </ul>
       </div>
@@ -22,7 +22,7 @@
         <div class="panel-heading">Drafts/Unpublished</div>
         <ul class=list-group>
         <% for(var i=0; i<unpublished.length; i++) {%>
-           <li class="list-group-item"><%= unpublished[i].title %></li>
+           <li class="list-group-item"><a href="/posts/<%= i %>"><%= unpublished[i].title %></a></li>
         <% } %>
         </ul>
       </div>
