@@ -23,32 +23,35 @@ module.exports.http = {
 
   middleware: {
 
-  /***************************************************************************
+    /***************************************************************************
   *                                                                          *
   * The order in which middleware should be run for HTTP request. (the Sails *
   * router is invoked by the "router" middleware below.)                     *
   *                                                                          *
   ***************************************************************************/
 
-    // order: [
-    //   'startRequestTimer',
-    //   'cookieParser',
-    //   'session',
-    //   'myRequestLogger',
-    //   'bodyParser',
-    //   'handleBodyParserError',
-    //   'compress',
-    //   'methodOverride',
-    //   'poweredBy',
-    //   '$custom',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    //   '404',
-    //   '500'
-    // ],
+    passportInit: require('passport').initialize(),
+    passportSession: require('passport').session(),
 
-  /****************************************************************************
+    order: [
+      'startRequestTimer',
+      'cookieParser',
+      'session',
+      'passportInit',
+      'passportSession',
+      'myRequestLogger',
+      'bodyParser',
+      'handleBodyParserError',
+      'compress',
+      'methodOverride',
+      'poweredBy',
+      'router',
+      'www',
+      'favicon',
+      '404',
+      '500'
+    ]
+    /****************************************************************************
   *                                                                           *
   * Example custom middleware; logs each request to the console.              *
   *                                                                           *
@@ -59,8 +62,7 @@ module.exports.http = {
     //     return next();
     // }
 
-
-  /***************************************************************************
+    /***************************************************************************
   *                                                                          *
   * The body parser that will handle incoming multipart HTTP requests. By    *
   * default as of v0.10, Sails uses                                          *

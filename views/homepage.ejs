@@ -5,12 +5,15 @@
      <div class="row">
        <div class="col-md-12">
          <p>
-           <i><small>Author: <%= posts[i].author %>, <span>Posted: <%= posts[i].createdAt %></span></small></i>
+           <i>
+             <small>
+              Author: <%= posts[i].author.name %>
+              <span>Posted: <%= moment(posts[i].createdAt).format('lll') %></span>
+             </small>
+           </i>
          </p>
          <h3 class="post-title"><a href="/posts/<%= posts[i].id %>"><%= posts[i].title %></a></h3>
-         <p>
-           <%= posts[i].body %>
-         </p>
+         <p><%= posts[i].body %></p>
          <hr>
        </div>
      </div>
