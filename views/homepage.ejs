@@ -4,7 +4,7 @@
      <% for(var i=0; i<posts.length; i++) {%>
        <% if(posts[i].published) {%>
        <div class="col-md-4 homepage-post-wrapper">
-         <div class="homepage-post-inner">
+         <div class="homepage-post-inner" href="/posts/<%= posts[i].id %>">
            <p>
            </p>
            <a class="post-title" href="/posts/<%= posts[i].id %>"><%= posts[i].title %></a><br />
@@ -16,6 +16,6 @@
          </div>
        </div>
        <% } %>
-       <% } %>
+     <% } %>
      </div>
 </div>

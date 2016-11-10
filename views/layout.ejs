@@ -48,8 +48,10 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="/">Home <span class="sr-only">(current)</span></a></li>
+            <% if(req.isAuthenticated()) { %>
             <li><a href="/user/dashboard">Dashboard</a></li>
+            <% } %>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if(req.isAuthenticated() === false) { %>
@@ -87,7 +89,7 @@
     -->
 
     <!--TEMPLATES-->
-    
+
     <!--TEMPLATES END-->
 
 
@@ -118,6 +120,7 @@
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/dependencies/jquery-3.1.1.min.js"></script>
     <script src="/js/dependencies/bootstrap.min.js"></script>
+    <script src="/js/scripts.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
