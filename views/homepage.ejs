@@ -12,7 +12,7 @@
                Author: <%= posts[i].author.name %>
                <span>Posted: <%= moment(posts[i].createdAt).format('lll') %></span>
            </small></i>
-           <p><%= posts[i].body %></p>
+           <p><%= posts[i].body.substring(0, 200) + '...' %></p>
          </div>
        </div>
        <% } %>

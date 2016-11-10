@@ -37,6 +37,17 @@ module.exports = {
 						})
 		      })
       })
-
+	},
+	create: function(req, res) {
+		User
+			.create({
+				name: req.body.name,
+				email: req.body.email,
+				password: req.body.password
+			})
+			.exec(function(err, user) {
+				res.redirect('/login');
+			})
 	}
+
 };
