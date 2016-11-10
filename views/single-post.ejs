@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12 sp-post-wrapper">
       <h3 class="sp-post-title"><%= post.title %></h3>
-      <p class="sp-post-author-date"> Author: <%= post.author.name %>, Posted: <%= moment(post.createdAt).format('lll') %></p>
+      <i><p class="sp-post-author-date"> Author: <%= post.author.name %>, Posted: <%= moment(post.createdAt).format('lll') %></p></i>
       <p class="sp-post-body"><%= post.body %></p>
     </div>
   </div>

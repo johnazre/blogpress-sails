@@ -12,6 +12,7 @@ module.exports = {
 	showAllPosts: function(req, res) {
     Post
       .find({})
+      .sort('createdAt DESC')
       .populate('author')
       .exec( function(err, posts) {
         if (err) {
