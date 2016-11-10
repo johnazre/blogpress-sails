@@ -14,5 +14,5 @@ npm install
 sails lift
 ```
 TODO:
-- [ ] Add Post editing capability
+- [x] Add Post editing capability
 - [x] Everything Else...that I can think of at the moment.
