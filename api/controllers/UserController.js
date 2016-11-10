@@ -8,7 +8,7 @@
 module.exports = {
 	dashboard: function(req, res) {
 		Post
-			.find({ published: 'true' })
+			.find({ published: 1 })
 			.populate('author')
 			.exec( function(err, posts) {
         if (err) {
@@ -20,7 +20,7 @@ module.exports = {
 				var publishedPosts = posts;
 
 				Post
-					.find({ published: 'false' })
+					.find({ published: 0 })
 					.populate('author')
 					.exec( function(err, posts) {
 		        if (err) {
