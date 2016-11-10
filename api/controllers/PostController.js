@@ -82,5 +82,25 @@ module.exports = {
         sails.log.info('post deleted: ', post);
         res.redirect('user/dashboard');
       });
+  },
+
+  edit: function(req, res) {
+    sails.log.info('id: ', req.param('id'));
+    Post
+      .findOne({id: req.param('id')})
+      .exec(function(err, post) {
+        sails.log.info('post found', post);
+        res.view('user/edit-post-form', {
+          post: post
+        });
+      });
+  },
+
+  update: function(req, res) {
+    Post
+      .update({id: req.param('id')},{ title: req.body.title, body: req.body.body })
+      .exec( function(err, updatedPost) {
+        res.redirect('/user/dashboard');
+      });
   }
 };

@@ -44,6 +44,7 @@
                 <a href="/posts/<%= unpublished[i].id %>"><%= unpublished[i].title %></a>
               </td>
               <td class="text-right text-nowrap">
+                <button onclick="location.href='/post/edit/<%= unpublished[i].id %>';" class="btn btn-xs btn-info">Edit</button>
                 <button onclick="location.href='/post/publish/<%= unpublished[i].id %>';" class="btn btn-xs btn-info">Publish</button>
                 <button onclick="location.href='/post/destroy/<%= unpublished[i].id %>';" class="btn btn-xs btn-warning">
                   <span class="glyphicon glyphicon-trash"></span>
