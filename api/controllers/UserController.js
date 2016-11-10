@@ -9,6 +9,7 @@ module.exports = {
 	dashboard: function(req, res) {
 		Post
 			.find({ published: 'true' })
+			.populate('author')
 			.exec( function(err, posts) {
         if (err) {
           return res.serverError(err);
@@ -20,6 +21,7 @@ module.exports = {
 
 				Post
 					.find({ published: 'false' })
+					.populate('author')
 					.exec( function(err, posts) {
 		        if (err) {
 		          return res.serverError(err);
